@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Endless Horse</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #fff;
+      margin: 2rem;
+    }
+    pre {
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  </style>
 </head>
 <body>
 
@@ -25,6 +35,18 @@
   ||    ||
   ||    ||</pre>
 
-<script src="horse.js"></script>
+<script>
+  const horse = document.getElementById('horse');
+
+  window.addEventListener('scroll', () => {
+    const nearBottom =
+      window.innerHeight + window.scrollY >= document.body.scrollHeight - 200;
+
+    if (nearBottom) {
+      horse.textContent += '\n  ||    ||' + '\n  ||    ||';
+    }
+  });
+</script>
+
 </body>
 </html>
