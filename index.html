@@ -1,67 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Endless ASCII Horse</title>
-
-<style>
-body {
-    font-family: monospace;
-    white-space: pre;
-    margin: 0;
-    padding: 20px;
-    line-height: 1;
-}
-
-#horse {
-    font-size: 18px;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Endless Horse</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="horse"></div>
+<pre id="horse">        .,,.
+      ,;;*;;;;,
+     ;;;*;;;;;;,
+   ,;;;;;;;;;*;;,  ,,,,,
+  ;;;;;;;;;;;;;;;;/;' ;;&grave;
+ ;;;;;;;;:       ':    ;;
+;';;;''  ;;;,         ;*;;
+       ,;*;;        ,;';;;
+      ,;*;,       ,;';;;*'
+     ,;;;,      ,;';;;'
+   ,;*;;;,    ,;';
+  ,;'*;;  ,;';'
+ ;';;*;;  ;'
+;'';;   ;;
+';;     ;;
+  ||    ||
+  ||    ||</pre>
 
-<script>
-
-const horse = document.getElementById("horse");
-
-let bodyLength = 500;
-
-function renderHorse() {
-
-    let text = "";
-
-    text += "      >>\n";
-    text += "     /\\\n";
-    text += "    /  \\\\\n";
-    text += "   /____\\\\\n";
-
-    for(let i=0;i<bodyLength;i++){
-        text += "      ||\n";
-    }
-
-    text += "     /  \\\\\n";
-    text += "    /    \\\\\n";
-
-    horse.textContent = text;
-}
-
-renderHorse();
-
-window.addEventListener("scroll", () => {
-
-    if (
-        window.innerHeight + window.scrollY >
-        document.body.offsetHeight - 1000
-    ) {
-        bodyLength += 500;
-        renderHorse();
-    }
-
-});
-
-</script>
-
+<script src="horse.js"></script>
 </body>
 </html>
