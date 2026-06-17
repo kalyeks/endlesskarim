@@ -38,12 +38,21 @@
 <script>
   const horse = document.getElementById('horse');
 
+  function addLegs() {
+    horse.textContent += '\n  ||    ||' + '\n  ||    ||';
+  }
+
+  // Add legs on load until the page becomes scrollable
+  for (let i = 0; i < 40; i++) {
+    addLegs();
+  }
+
   window.addEventListener('scroll', () => {
     const nearBottom =
       window.innerHeight + window.scrollY >= document.body.scrollHeight - 200;
 
     if (nearBottom) {
-      horse.textContent += '\n  ||    ||' + '\n  ||    ||';
+      addLegs();
     }
   });
 </script>
