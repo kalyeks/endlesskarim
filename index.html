@@ -1,31 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Endless Horse</title>
-  <style>
-    body {
-      margin: 0;
-      overflow-x: hidden;
-    }
+<meta charset="UTF-8">
+<title>Endless ASCII Horse</title>
 
-    .horse {
-      width: 200px;
-      margin: 0 auto;
-    }
+<style>
+body {
+    font-family: monospace;
+    white-space: pre;
+    margin: 0;
+    padding: 20px;
+    line-height: 1;
+}
 
-    .container {
-      height: 100000px; /* This makes the page “endless” */
-      background: linear-gradient(white, lightgray);
-    }
-  </style>
+#horse {
+    font-size: 18px;
+}
+</style>
 </head>
 <body>
 
-<div class="container">
-  <div class="horse">
-    🐎
-  </div>
-</div>
+<div id="horse"></div>
+
+<script>
+
+const horse = document.getElementById("horse");
+
+let bodyLength = 500;
+
+function renderHorse() {
+
+    let text = "";
+
+    text += "      >>\n";
+    text += "     /\\\n";
+    text += "    /  \\\\\n";
+    text += "   /____\\\\\n";
+
+    for(let i=0;i<bodyLength;i++){
+        text += "      ||\n";
+    }
+
+    text += "     /  \\\\\n";
+    text += "    /    \\\\\n";
+
+    horse.textContent = text;
+}
+
+renderHorse();
+
+window.addEventListener("scroll", () => {
+
+    if (
+        window.innerHeight + window.scrollY >
+        document.body.offsetHeight - 1000
+    ) {
+        bodyLength += 500;
+        renderHorse();
+    }
+
+});
+
+</script>
 
 </body>
 </html>
